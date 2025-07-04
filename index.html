@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>💱 Currency Converter</title>
+</head>
+
+<body>
+  <div class="structure">
+    <header>
+      <h1>💱 Currency Converter</h1>
+    </header>
+
+    <main>
+      <form action="#">
+        <!-- CAMPO DE VALOR -->
+        <div class="input-section">
+          <p>Enter Amount</p>
+          <input id="amount" placeholder="Ex: 1000">
+        </div>
+
+        <!-- SELEÇÃO DE MOEDAS -->
+        <div class="currency-section">
+          <!-- De -->
+          <div class="select-box">
+            <p>From</p>
+            <select id="from-currency">
+              <option value="USD">🇺🇸 USD</option>
+              <option value="BRL">🇧🇷 BRL</option>
+              <option value="EUR">🇪🇺 EUR</option>
+              <option value="GBP">🇬🇧 GBP</option>
+              <option value="JPY">🇯🇵 JPY</option>
+              <option value="ARS">🇦🇷 ARS</option>
+              <option value="CAD">🇨🇦 CAD</option>
+              <option value="AUD">🇦🇺 AUD</option>
+              <option value="CNY">🇨🇳 CNY</option>
+            </select>
+            
+          </div>
+
+          <!-- Ícone de troca -->
+          <div class="icon" id="swap-button">⇄</div>
+
+          <!-- Para -->
+          <div class="select-box">
+            <p>To</p>
+            <select id="to-currency">
+              <option value="USD">🇺🇸 USD</option>
+              <option value="BRL">🇧🇷 BRL</option>
+              <option value="EUR">🇪🇺 EUR</option>
+              <option value="GBP">🇬🇧 GBP</option>
+              <option value="JPY">🇯🇵 JPY</option>
+              <option value="ARS">🇦🇷 ARS</option>
+              <option value="CAD">🇨🇦 CAD</option>
+              <option value="AUD">🇦🇺 AUD</option>
+              <option value="CNY">🇨🇳 CNY</option>
+            </select>
+
+          </div>
+        </div>
+
+        <!-- RESULTADO -->
+        <div class="exchange-rate">1,000 USD = 73,704.26 INR</div>
+
+        <!-- BOTÃO -->
+        <button id="button">Convert</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
