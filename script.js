@@ -4,6 +4,17 @@ const fromCurrency = document.getElementById("from-currency");
 const toCurrency = document.getElementById("to-currency");
 const resultText = document.querySelector(".exchange-rate");
 
+
+
+function formatCurrency(value, currencyCode) {
+    return new Intl.NumberFormat(undefined, {
+        style: 'currency',
+        currency: currencyCode
+    }).format(value);
+}
+
+
+
 convertButton.addEventListener("click", () => {
     const amountValue = parseFloat(amountInput.value);
     const fromValue = fromCurrency.value;
@@ -27,6 +38,7 @@ convertButton.addEventListener("click", () => {
         return;
     }
 
+
     // Monta URL com base na ordem das moedas
     const apiURL = `https://v6.exchangerate-api.com/v6/9650b52f9765a75e61e63317/pair/${fromValue}/${toValue}/${amountValue}`;
     console.log("URL da API:", apiURL);
@@ -37,8 +49,10 @@ convertButton.addEventListener("click", () => {
         .then(data => {
             console.log(data)
             const converted = data.conversion_result;
-            resultText.textContent = `${amountValue} ${fromValue} = ${converted.toFixed(2)} ${toValue}`;
-            resultText.className = "exchange-rate success";
+            const formattedOriginal = formatCurrency(amountValue, fromValue);
+            const formattedConverted = formatCurrency(converted, toValue);
+            resultText.textContent = `${formattedOriginal} = ${formattedConverted}`;
+
         })
         .catch(() => {
             resultText.textContent = "Error fetching exchange rate.";
@@ -48,11 +62,11 @@ convertButton.addEventListener("click", () => {
 
 const swapButton = document.getElementById("swap-button");
 swapButton.addEventListener("click", () => {
-    
+
     const temp = fromCurrency.value;
     fromCurrency.value = toCurrency.value;
     toCurrency.value = temp;
     convertButton.click();
 
-})
+});
 
